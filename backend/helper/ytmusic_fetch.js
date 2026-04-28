@@ -1,15 +1,6 @@
-const YTMusic = require("ytmusic-api");
+const { initYTMusic, ytmusic } = require("../util");
 const { cleanTitle, decodeHTML } = require("./common");
-const ytmusic = new YTMusic();
 
-let isInitialized = false;
-
-const initYTMusic = async () => {
-    if (!isInitialized) {
-        await ytmusic.initialize();
-        isInitialized = true;
-    }
-};
 
 const formatYTMusicSong = (item) => ({
 
