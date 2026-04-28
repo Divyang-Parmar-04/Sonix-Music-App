@@ -4,7 +4,7 @@ const dotenv = require("dotenv").config()
 
 const Routers = require('./routers/router.js')
 
-const PORT = 3000 || process.env.PORT
+const PORT = process.env.PORT || 3000;
 const app = express()
 
 // middleware : 
@@ -15,4 +15,6 @@ app.use(express.json())
 app.use("/api/music", Routers)
 
 
-app.listen(PORT,()=>console.log(`Server Started at PORT : ${PORT}`))
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server Started at PORT : ${PORT}`);
+});
