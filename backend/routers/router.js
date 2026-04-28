@@ -3,7 +3,7 @@ const axios = require('axios');
 const router = express.Router();
 
 // const { getNewReleases, getTrending, getTopSongs } = require("../helper/youtube_fetch.js");
-const { searchYouTubeSongs, fetchTracksByIds } = require("../helper/youtube_search.js");
+// const { searchYouTubeSongs, fetchTracksByIds } = require("../helper/youtube_search.js");
 
 const { parseDuration } = require("../helper/common.js");
 const { handleStreamSong } = require("../helper/music_stream.js");
@@ -71,7 +71,7 @@ router.get("/tracks-by-ids", async (req, res) => {
     }
 
     const idArray = ids.split(",");
-    const tracks = await fetchTracksByIds(idArray);
+    const tracks = await fetchYTMusicTracksByIds(idArray);
 
     res.json(tracks);
 
