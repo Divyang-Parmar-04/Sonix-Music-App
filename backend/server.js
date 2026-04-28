@@ -11,9 +11,12 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.send("Server is live 🚀");
+});
+
 // Routes : 
 app.use("/api/music", Routers)
-
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server Started at PORT : ${PORT}`);
