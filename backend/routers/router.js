@@ -1,5 +1,4 @@
 const express = require("express");
-const ytdl = require("@distube/ytdl-core");
 const axios = require('axios');
 const router = express.Router();
 
@@ -99,7 +98,7 @@ router.get("/stream", async (req, res) => {
       return res.status(400).json({ error: "Invalid YouTube ID" });
     }
 
-    const {finalAudioUrl,duration} = await handleStreamSong(videoId)
+    const { finalAudioUrl, duration } = await handleStreamSong(videoId)
 
     //  Send both
     res.json({
